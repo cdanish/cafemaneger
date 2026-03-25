@@ -1,0 +1,607 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cyber cafe APIS",
+    "description": "Auto-generated Swagger documentation",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/createAdmin": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "Create a new admin user",
+        "description": "Registers a new admin user with name, email, and password.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "adminname",
+                  "username",
+                  "adminemail",
+                  "password"
+                ],
+                "properties": {
+                  "adminname": {
+                    "type": "string",
+                    "example": "Danish Chaush"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "danish123"
+                  },
+                  "adminemail": {
+                    "type": "string",
+                    "example": "danish@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "secret123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/adminlogin": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "login in admin user",
+        "description": "Login  admin user with username, password.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "danish123"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "secret123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/adminlogout": {
+      "get": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "Logout user admin",
+        "description": "after logout deleting cookie as well",
+        "responses": {}
+      }
+    },
+    "/api/admindetails": {
+      "get": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "User Admin details",
+        "description": "Only after login can get",
+        "responses": {}
+      }
+    },
+    "/api/adminupdate": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "Admin update details",
+        "description": "only update details after login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "adminname": {
+                    "type": "string",
+                    "example": "danish chaush"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "danish123"
+                  },
+                  "adminemail": {
+                    "type": "string",
+                    "example": "test@gmail.com"
+                  },
+                  "com_name": {
+                    "type": "string",
+                    "example": "cyber Cafe manement"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/adminupdatepass": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "Admin update password",
+        "description": "only update details after login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "password",
+                  "newpassword"
+                ],
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "abc123"
+                  },
+                  "newpassword": {
+                    "type": "string",
+                    "example": "abc123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/addcomputer": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "Add computer and system",
+        "description": "only Admin can add system",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "computerName",
+                  "systemLocation"
+                ],
+                "properties": {
+                  "computerName": {
+                    "type": "string",
+                    "example": "Acer"
+                  },
+                  "systemLocation": {
+                    "type": "string",
+                    "example": "system1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/updatecomputer/{id}": {
+      "post": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "update compuer",
+        "description": "only Admin can update computer system",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Computer ID to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "computerName",
+                  "systemLocation"
+                ],
+                "properties": {
+                  "computerName": {
+                    "type": "string",
+                    "example": "Acer"
+                  },
+                  "systemLocation": {
+                    "type": "string",
+                    "example": "system1"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/singlecomputer/{id}": {
+      "get": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "getting Single computer",
+        "description": "only admin can get single computer",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Computer ID to update"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/deletecomputer/{id}": {
+      "get": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "delete Single computer",
+        "description": "only admin can delete single computer",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Computer ID to delete"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/getallcomputers": {
+      "get": {
+        "tags": [
+          "Admin APIs"
+        ],
+        "summary": "all Computers with paginate",
+        "description": "only admin can get all computer",
+        "responses": {}
+      }
+    },
+    "/api/addid":{
+      "post":{
+        "tags":["Admin ID Types"],
+        "summary": "Add ID Type",
+        "description": "only Admin can add ID",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Adhar Card"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/updateId/{id}":{
+      "post":{
+        "tags":["Admin ID Types"],
+        "summary": "Update ID Type",
+        "description": "only Admin can update ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID Type to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "pan card"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/api/getsingleid/{id}":{
+      "get":{
+        "tags":["Admin ID Types"],
+        "summary": "get Single ID Type",
+        "description": "only Admin can get Single ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID Type to get single id"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/deleteId/{id}":{
+      "delete":{
+        "tags":["Admin ID Types"],
+        "summary": "delete Single ID Type",
+        "description": "only Admin can get delete ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID Type to get single id"
+          }
+        ],
+         "responses": {}
+
+      }
+    },
+    "/api/getallIds":{
+      "get":{
+        "tags":["Admin ID Types"],
+        "summary": "get All ID Type",
+        "description": "only Admin can get All ID",
+          "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "description": "Page number (default: 1)",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Number of records per page (default: 10)",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "example": 10
+          }
+        }
+      ],
+        "responses": {}
+
+      }
+    },
+    "/api/adduser":{
+      "post":{
+        "tags": ["User Management"],
+        "summary": "Add a new user",
+        "description": "Creates a new user with details like name, phone, computer, ID proof, fees, etc.",
+        "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["username", "phone", "computer", "idProof"],
+            "properties": {
+              "username": { "type": "string", "example": "John Doe" },
+              "email": { "type": "string", "example": "john@example.com" },
+              "phone": { "type": "string", "example": "+911234567890" },
+              "address": { "type": "string", "example": "123 Street, City" },
+              "computer": { "type": "string", "example": "64e3bcf5f5c123456789abcd" },
+              "idProof": { "type": "string", "example": "64e3bcf5f5c987654321abcd" },
+              "fees": { "type": "string", "example": "500" },
+              "remark": { "type": "string", "example": "First visit" },
+              "status": { "type": "string", "example": "0" }
+            }
+          },
+          "examples": {
+            "New User": {
+              "value": {
+                "username": "John Doe",
+                "email": "john@example.com",
+                "phone": "+911234567890",
+                "address": "123 Street, City",
+                "computer": "64e3bcf5f5c123456789abcd",
+                "idProof": "64e3bcf5f5c987654321abcd",
+                "fees": "50",
+                "remark": "First visit",
+                "status": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses":{}
+      }
+    },
+    "/api/getsinleUser/{id}":{
+      "get":{
+        "tags": ["User Management"],
+        "summary": "get Single user",
+        "description": "only admin can get user details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID Type to get single id"
+          }
+        ],
+         "responses": {}
+
+      }
+    },
+    "/api/getallusers":{
+      "get":{
+        "tags": ["User Management"],
+        "summary": "get all user",
+        "description": "only admin can get all details",
+        "responses": {}
+      }
+    },
+    "/api/delteuser/{id}":{
+      "delete":{
+        "tags": ["User Management"],
+        "summary": "delete Single user",
+        "description": "only admin can delete user ",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "single  user deleted"
+          }
+        ],
+         "responses": {}
+
+      }
+    },
+    "/api/updateuser/{id}":{
+      "post":{
+        "tags": ["User Management"],
+        "summary": "Update a single user",
+        "description": "Only admin can update user details like outTime and status",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the user to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+    ],
+    "requestBody": {
+    "required": true,
+      "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "outTime": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2024-06-22T06:55:00Z"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "required": ["status"]
+            }
+          }
+      }
+    },
+    "responses": {}
+      }
+    }
+  }
+}
